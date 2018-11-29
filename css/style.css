@@ -1,0 +1,333 @@
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  40% {
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+  60% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  80% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+  }
+  40% {
+    -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+  }
+  60% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  80% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+html, body {
+  height: 100%;
+}
+
+h2 {
+	font-family: Shadows Into light Two, Caveat Brush, Nothing You could Do, Cursive;
+	line-height: 1.5em;
+	font-size: 30px;
+	color: #C1272D;
+}
+body {
+background: url("../pics/background.png"); /* The image used */
+  height: auto;
+	width: 100%;/* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+	 display: flex;
+  align-items: center;
+ 
+}
+
+main {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 80em;
+}
+
+.present {
+  position: relative;
+  display: inline-block;
+  width: 12em;
+  height: 12em;
+  margin: .5em;
+  -webkit-perspective: 850px;
+          perspective: 850px;
+  z-index: 666;
+}
+
+.present__pane,
+.present__content, .locked {
+  width: inherit;
+  height: inherit;
+}
+
+.present__pane {
+  position: relative;
+  background: linear-gradient(135deg, #8AB790 50%, #61A36A 50%);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-perspective: 850px;
+          perspective: 850px;
+  text-align: center;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all .2s ease-out;
+}
+.hiddentext{
+	position: absolute;
+	left: 3em;
+	bottom: 0;
+	opacity: 0;
+}
+.hiddentext:hover {
+	opacity: 100%;
+}
+
+.locked {
+  position: relative;
+  background: linear-gradient(135deg, lightgray 50%, darkgray 50%);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 0;
+          transform-origin: 0;
+  -webkit-perspective: 850px;
+          perspective: 850px;
+  text-align: center;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all .2s ease-out;
+}
+
+.present__date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 2.4em;
+  height: 2.4em;
+  margin: 0;
+  font-size: 2em;
+  line-height: 2.4em;
+  background: Gold;
+  color: #FFFFCE;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.15);
+}
+
+.notopendate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 2.4em;
+  height: 2.4em;
+  margin: 0;
+  font-size: 2em;
+  line-height: 2.4em;
+  background: darkgray;
+  color: grey;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.15);
+}
+.hidden {
+  position: absolute;
+	opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 2.4em;
+  height: 2.4em;
+  margin: 0;
+  font-size: 2em;
+  line-height: 2.4em;
+  background: Gold;
+  color: white;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.15);
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+}
+.present:hover {
+  z-index: 999;
+
+}
+
+.hidden:hover {
+	display: inline-block;
+	opacity: 100;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	}
+.present:hover .present__pane {
+  background: linear-gradient(135deg, #8AB790 50%, #61A36A 50%);
+  -webkit-transform: rotateY(-97deg);
+          transform: rotateY(-97deg);
+  -webkit-perspective-origin: 0;
+          perspective-origin: 0;
+  transition: all .25s ease-in;
+}
+
+.present:hover .present__date {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.present:hover .present__bauble {
+  display: inline-block;
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  -webkit-animation: shake .7s;
+          animation: shake .7s;
+}
+
+.present__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: Gold;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15), inset 0 0 30px 20px rgba(0, 0, 0, 0.15);
+  z-index: -1;
+}
+
+.present__bauble {
+  position: relative;
+  width: 2.6666666667em;
+  height: 2.6666666667em;
+  background: #C1272D;
+  margin: 25% auto 0 auto;
+  font-size: 2.6666666667em;
+  line-height: 2.6666666667em;
+  border-radius: 50%;
+}
+
+
+.present__bauble::after {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  width: 30%;
+  height: 10%;
+  margin-left: -15%;
+  background: inherit;
+}
+
+.present__bauble::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  width: 12%;
+  height: 20%;
+  margin-left: -12%;
+  border: .35rem solid #C1272D;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.modalDialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog p {
+	font-family: Shadows Into light Two, Caveat Brush, Nothing You could Do, Cursive;
+	line-height: 1.5em;
+	font-size: 30px;
+}
+.modalDialog h2 {
+	font-family: Nothing You could Do, Shadows Into light Two, Caveat Brush,  Cursive;
+	line-height: 1em;
+	font-size: 40px;
+}
+
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 500px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #FFF8DC);
+	background: -webkit-linear-gradient(#fff, #FFF8DC);
+	background: -o-linear-gradient(#fff, #FFF8DC);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #548654; }
+
+
